@@ -1,0 +1,39 @@
+.app {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;  
+}
+
+.items {
+  margin-top: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly
+}
+
+form input {
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 32px;
+  color:gray;
+  outline: none
+}
+
+.buttons input {
+  border: 1px solid #4377B4;
+  background-color: #4377B4;
+  border-radius: 5px;
+  color: white;
+  height: 32px;
+  min-width: 200px;
+  margin-right: 20px;
+}
+
+
+.buttons span {
+  color: #4377B4;
+}
