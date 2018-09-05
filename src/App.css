@@ -8,7 +8,7 @@
   min-width: 400px
 }
 
-.items {
+.demo-board div {
   margin-top: 30px;
   font-size: 18px;
 }
@@ -35,7 +35,7 @@ form input {
 }
 
 .buttons input {
-  border: 1px solid #4377B4;
+  border: 1px solid white;
   background-color: #4377B4;
   border-radius: 5px;
   color: white;
@@ -44,7 +44,17 @@ form input {
   margin-right: 20px;
 }
 
+.buttons input:hover {
+  cursor: pointer;
+  background-color: gray
+}
 
 .buttons span {
   color: #4377B4;
 }
+
+span:hover {
+  cursor: pointer;
+  color: gray
+}
+
