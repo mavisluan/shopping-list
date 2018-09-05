@@ -3,20 +3,31 @@ import './App.css';
 
 class App extends Component {
   state = {
-    items: []
+    items: [{id: 0, name: 'eggs', count: '2'}]
   }
 
   render() {
+    const { items } = this.state
+    
     return (
       <div className="app">
-        <div className='board'>
+        <div className='display-board'>
           <h2>Shopping List</h2>
           <hr />
-          <div className='items'>
-            There are no items in your list.
-          </div>  
+          { items.length === 0  ? 
+            <div>There are no items in your list.</div> :
+            <div className='items'>
+              {items.map(item => (
+                <div className='item' key={item.id}>
+                    {item.count} {item.name}
+                    <span><i class="fas fa-trash-alt"></i></span>
+                    <span><i class="far fa-check-square"></i></span>
+                </div>
+              ))} 
+            </div> 
+          } 
         </div>
-        <div className='new-item'>
+        <div className='add-board'>
           <h2>Add New Item</h2>
           <hr />
           <form>

@@ -1,12 +1,23 @@
 .app {
   display: flex;
-  flex: 1;
   justify-content: space-around;  
+  min-width: 1000px;
+}
+
+.app > div {
+  min-width: 400px
 }
 
 .items {
   margin-top: 30px;
+  font-size: 18px;
 }
+
+.item span {
+  float: right;
+  padding-left: 10px;
+}
+
 
 form {
   display: flex;
@@ -29,7 +40,7 @@ form input {
   border-radius: 5px;
   color: white;
   height: 32px;
-  min-width: 200px;
+  max-width: 200px;
   margin-right: 20px;
 }
 
