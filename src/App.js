@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DemoBoard from './DemoBoard'
+import AddBoard from './AddBoard'
 import serializeForm from 'form-serialize'
 import './App.css';
 
@@ -25,7 +26,7 @@ class App extends Component {
     this.setState({ 
       items: JSON.parse(localStorage.getItem('localItems')),
       name: '', 
-      count: 1
+      count: 0
     }) 
   }
  
@@ -37,7 +38,7 @@ class App extends Component {
 
   createItem = (value, items) => {
     const id = items.length === 0 ? 0 : items.length + 1
-    return { ...value, id}
+    return { ...value, id, checked: false}
   }
 
   handleName = (e) => (
@@ -53,39 +54,17 @@ class App extends Component {
 
     return (
       <div className="app">
-        <DemoBoard items={items} onRemoveItem={this.removeItem}/>
-        <div className='add-board'>
-          <h2>Add New Item</h2>
-          <hr />
-          <form className='create-item-form' onSubmit={this.handleSubmit}>
-            <h3>Name</h3>
-            <input 
-              type='text' 
-              placeholder='Enter name' 
-              name='name'
-              value={name}
-              required 
-              minLength='1'
-              onChange={this.handleName}
-              autoComplete="off"
-            />
-            <h3>Quantify</h3>
-            <input
-              type='number' 
-              placeholder='0' 
-              name='count' 
-              value={count}
-              min='1'
-              onChange={this.handleCount}
-              autoComplete="off"
-            />
-            <hr />
-            <div className='buttons'>
-              <input type='submit' value='Add to list'/>
-              <span>Cancel</span>
-            </div>  
-          </form>
-        </div>
+        <DemoBoard 
+          items={items} 
+          onRemoveItem={this.removeItem}>
+        </DemoBoard>
+        <AddBoard 
+          name={name} 
+          count={count} 
+          onNameChange={this.handleName}
+          onCountChange={this.handleCount}
+          onSubmit={this.handleSubmit}
+        />
       </div>
     );
   }
