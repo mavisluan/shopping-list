@@ -1,6 +1,6 @@
 # Shopping List Project 
 
-This is a shopping list project, built with ReactJS.
+This is a shopping list project, build with ReactJS. 
 
 
 # App Functionality
