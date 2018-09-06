@@ -1,6 +1,6 @@
 # Shopping List Project 
 
-This is a shopping list project, created using React.
+This is a shopping list project, created using ReactJS.
 
 
 # App Functionality
@@ -11,6 +11,7 @@ The project shows
 
 Users will be able to 
 - add a new item
+- remove a item
 - check items from the list 
 - put items back to the list
 
