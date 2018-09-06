@@ -5,12 +5,22 @@
 }
 
 .app > div {
-  min-width: 400px
+  min-width: 400px;
+  margin-top: 10px;
+  font-size: 18px;
 }
 
-.demo-board div {
+.items-list > div {
+  margin-top: 20px;
+}
+
+.checked-items {
   margin-top: 30px;
-  font-size: 18px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;  
 }
 
 .item span {

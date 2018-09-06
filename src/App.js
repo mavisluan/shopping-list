@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DemoBoard from './DemoBoard'
-import AddBoard from './AddBoard'
+import ItemsList from './ItemsList'
+import NewItemForm from './NewItemForm'
 import serializeForm from 'form-serialize'
 import './App.css';
 
@@ -30,8 +30,32 @@ class App extends Component {
     }) 
   }
  
+  cancelSubmit = () => this.setState({ name: '', count: 0 })
+
   removeItem = (id) => {
-    const items = this.state.items.filter(item => (item.id !== id))
+    const items = this.state.items.filter(item => item.id !== id)
+    localStorage.setItem('localItems', JSON.stringify(items)) 
+    this.setState({ items })
+  }
+
+  checkItem = (id) => {
+    const items = this.state.items.map(item => {
+      if (item.id === id) {
+        item.checked = true
+      }
+      return item
+    })
+    localStorage.setItem('localItems', JSON.stringify(items)) 
+    this.setState({ items })
+  }
+
+  backToList = (id) => {
+    const items = this.state.items.map(item => {
+      if (item.id === id) {
+        item.checked = false
+      }
+      return item
+    })
     localStorage.setItem('localItems', JSON.stringify(items)) 
     this.setState({ items })
   }
@@ -51,22 +75,48 @@ class App extends Component {
 
   render() {
     const { name, count, items } = this.state
+    const itemsOnList = items.filter(item => item.checked === false)
+    const itemsChecked = items.filter(item => item.checked === true)
 
     return (
       <div className="app">
-        <DemoBoard 
-          items={items} 
-          onRemoveItem={this.removeItem}>
-        </DemoBoard>
-        <AddBoard 
-          name={name} 
-          count={count} 
-          onNameChange={this.handleName}
-          onCountChange={this.handleCount}
-          onSubmit={this.handleSubmit}
-        />
+          <div className='demo-board'>
+            <div className='header'>
+              <h2>Shopping List</h2><hr />
+            </div>
+            <div className='list-items'>
+              <ItemsList 
+                items={itemsOnList}
+                onCheckItem={this.checkItem} 
+                onRemoveItem={this.removeItem}/>
+            </div>
+            {itemsChecked.length !== 0 &&
+              <div className='checked-items'>
+                <div>Checked Items</div>
+                <ItemsList 
+                  items={itemsChecked}
+                  onBackToList={this.backToList}
+                  onRemoveItem={this.removeItem}/>
+              </div>
+            }  
+          </div>
+        <div>
+        <div className='add-board'>
+          <div className='header'>
+            <h2>Add New Item</h2><hr />
+          </div>
+          <NewItemForm 
+            name={name} 
+            count={count} 
+            onNameChange={this.handleName}
+            onCountChange={this.handleCount}
+            onSubmit={this.handleSubmit}
+            onCancelSubmit={this.cancelSubmit}
+          />
+        </div> 
       </div>
-    );
+    </div>
+    )
   }
 }
 

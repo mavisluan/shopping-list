@@ -1,15 +1,19 @@
 import React from 'react'
+import Item from './Item'
 
-const ItemsList = ({ items, onRemoveItem }) => (
-    <div>
+const ItemsList = ({ items, onCheckItem, onRemoveItem, onBackToList }) => (
+    <div className='items-list'>
         {items.map(item => (
-            <div className='item' key={item.id}>
-                {Number(item.count)} {item.name}
-                <span onClick={() => onRemoveItem(item.id)}><i className="fas fa-trash-alt"></i></span>
-                <span><i className="far fa-check-square"></i></span>
+            <div key={item.id}>
+                <Item 
+                    item={item}
+                    onCheckItem={onCheckItem}
+                    onRemoveItem={onRemoveItem}
+                    onBackToList={onBackToList}
+                />   
             </div>
         ))} 
-    </div>
+    </div> 
 )
 
 export default ItemsList
