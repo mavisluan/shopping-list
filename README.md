@@ -22,6 +22,6 @@ Users will be able to
 
 
 # Installation Instructions
-- clone my repo https://github.com/mavisluan/random-users.git
+- clone my repo https://github.com/mavisluan/shopping-list.git
 - install all project dependencies with yarn install
 - start the development server with yarn start
