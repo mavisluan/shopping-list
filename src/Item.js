@@ -7,7 +7,9 @@ const Item= ({ item, onRemoveItem, onCheckItem, onBackToList }) => {
 
     return (
         <div className='item'>
-            <div className='item-name' style={{textDecoration: (item.checked && 'line-through')}}>{Number(item.count)} {item.name}</div>
+            <div className='item-name' style={{textDecoration: item.checked && 'line-through'}}>
+                {Number(item.count)} {item.name}
+            </div>
             <div className='item-control'>
                 <span onClick={() => onRemoveItem(item.id)}><i className="fas fa-trash-alt"></i></span>
                 {controlButton}

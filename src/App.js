@@ -22,9 +22,9 @@ class App extends Component {
     const value = serializeForm(e.target, { hash: true} )
     const { items } = this.state
     const item = this.createItem(value, items)
-    localStorage.setItem('localItems', JSON.stringify([...items, item]))
+    const localItems = localStorage.setItem('localItems', JSON.stringify([...items, item]))
     this.setState({ 
-      items: JSON.parse(localStorage.getItem('localItems')),
+      items: localItems,
       name: '', 
       count: 0
     }) 
@@ -72,7 +72,7 @@ class App extends Component {
   handleCount = (e) => (
     this.setState({ count: e.target.value })
   )
-
+  
   render() {
     const { name, count, items } = this.state
     const itemsOnList = items.filter(item => item.checked === false)
@@ -97,8 +97,7 @@ class App extends Component {
                   items={itemsChecked}
                   onBackToList={this.backToList}
                   onRemoveItem={this.removeItem}/>
-              </div>
-            }  
+              </div>}  
           </div>
         <div>
         <div className='add-board'>
