@@ -22,6 +22,7 @@ Users will be able to
 
 
 # Installation Instructions
-- clone my repo https://github.com/mavisluan/shopping-list.git
-- install all project dependencies with yarn install
-- start the development server with yarn start
+- git clone https://github.com/mavisluan/shopping-list.git
+- cd shopping-list
+- yarn install
+- yarn start
