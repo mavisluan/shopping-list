@@ -18,7 +18,7 @@ Users will be able to
 
 # App Screenshot
 
-![](src/screenshot.png)
+<img src='src/screenshot.png' width='600'>
 
 
 # Installation Instructions
