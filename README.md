@@ -3,7 +3,7 @@
 This is a shopping list project, build with ReactJS. 
 
 
-# App Functionality
+## App Functionality
 
 The project shows
 - items on the shopping list
@@ -16,12 +16,12 @@ Users will be able to
 - put items back to the list
 
 
-# App Screenshot
+## App Screenshot
 
 <img src='src/screenshot.png' width='600'>
 
 
-# Installation Instructions
+## Installation Instructions
 - git clone https://github.com/mavisluan/shopping-list.git
 - cd shopping-list
 - yarn install
