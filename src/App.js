@@ -22,9 +22,9 @@ class App extends Component {
     const value = serializeForm(e.target, { hash: true} )
     const { items } = this.state
     const item = this.createItem(value, items)
-    const localItems = localStorage.setItem('localItems', JSON.stringify([...items, item]))
+    localStorage.setItem('localItems', JSON.stringify([...items, item]))
     this.setState({ 
-      items: localItems,
+      items: [...items, item],
       name: '', 
       count: 0
     }) 
